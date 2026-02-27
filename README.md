@@ -12,7 +12,6 @@ To write a program to implement the K Means Clustering for Customer Segmentation
 2.Randomly initialize K centroids.
 3.Assign each data point to the nearest centroid.
 4.Recalculate the centroids.
-
 Repeat steps 3 and 4 until centroids do not change.
 ## Program:
 ```
