@@ -16,14 +16,60 @@ To write a program to implement the K Means Clustering for Customer Segmentation
 ## Program:
 ```
 /*
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+data = pd.read_csv("Mall_Customers.csv")
+X = data[['Annual Income (k$)', 'Spending Score (1-100)']]
+print(data.head())
+kmeans = KMeans(n_clusters=5, random_state=42)
+y_kmeans = kmeans.fit_predict(X)
+
+
+data['Cluster'] = y_kmeans
+
+print("\nClustered Data:")
+print(data.head())
+
+
+plt.figure()
+plt.scatter(X[y_kmeans == 0]['Annual Income (k$)'], 
+            X[y_kmeans == 0]['Spending Score (1-100)'], label='Cluster 0')
+
+plt.scatter(X[y_kmeans == 1]['Annual Income (k$)'], 
+            X[y_kmeans == 1]['Spending Score (1-100)'], label='Cluster 1')
+
+plt.scatter(X[y_kmeans == 2]['Annual Income (k$)'], 
+            X[y_kmeans == 2]['Spending Score (1-100)'], label='Cluster 2')
+
+plt.scatter(X[y_kmeans == 3]['Annual Income (k$)'], 
+            X[y_kmeans == 3]['Spending Score (1-100)'], label='Cluster 3')
+
+plt.scatter(X[y_kmeans == 4]['Annual Income (k$)'], 
+            X[y_kmeans == 4]['Spending Score (1-100)'], label='Cluster 4')
+
+# Plot centroids
+plt.scatter(kmeans.cluster_centers_[:,0], 
+            kmeans.cluster_centers_[:,1], 
+            s=200, label='Centroids')
+
+plt.title("Customer Segmentation using K-Means")
+plt.xlabel("Annual Income (k$)")
+plt.ylabel("Spending Score (1-100)")
+plt.legend()
+plt.show()
 Program to implement the K Means Clustering for Customer Segmentation.
-Developed by: 
-RegisterNumber:  
+Developed by: B.PRAVEEN RAJ
+RegisterNumber:  25019206
 */
 ```
 
 ## Output:
 ![K Means Clustering for Customer Segmentation](sam.png)
+<img width="723" height="118" alt="Screenshot 2026-02-27 140548" src="https://github.com/user-attachments/assets/9452630e-e0dd-4b27-b4e1-9fe6f24f3566" />
+<img width="736" height="257" alt="Screenshot 2026-02-27 140608" src="https://github.com/user-attachments/assets/c1710825-aadc-4e11-b6c1-bf652b60b299" />
+<img width="620" height="453" alt="Screenshot 2026-02-27 135748" src="https://github.com/user-attachments/assets/40947098-6319-4402-bc77-10e0e4c0e02c" />
+
 
 
 ## Result:
